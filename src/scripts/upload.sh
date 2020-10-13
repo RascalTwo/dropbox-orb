@@ -1,10 +1,11 @@
 Upload() {
-		source ./helper.sh
+		# shellcheck disable=SC1091
+		source helper.sh
 		verboseCurl true -X POST https://content.dropboxapi.com/2/files/upload \
 			--header "Authorization: Bearer ${DROPBOX_TOKEN}" \
 			--header "Dropbox-API-Arg: {\"path\": \"${UPLOAD_PATH}\", \"mode\": \"overwrite\"}" \
 			--header "Content-Type: application/octet-stream" \
-			--data-binary @${FILE_PATH}
+			--data-binary @"${FILE_PATH}"
 }
 
 # Will not run if sourced for bats-core tests.

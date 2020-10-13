@@ -12,5 +12,5 @@ parameters:
     description: "Where to download file to"
 steps:
   - download:
-        downloadpath: << parameters.downloadpath >>
-        filepath: << parameters.filepath >>
+      downloadpath: << parameters.downloadpath >>
+      filepath: << parameters.filepath >>

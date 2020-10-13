@@ -1,5 +1,6 @@
 Download() {
-		source ./helper.sh
+		# shellcheck disable=SC1091
+		source helper.sh
 		verboseCurl false -X POST https://content.dropboxapi.com/2/files/download \
 			--header "Authorization: Bearer ${DROPBOX_TOKEN}" \
 			--header "Dropbox-API-Arg: {\"path\": \"${DOWNLOAD_PATH}\"}"

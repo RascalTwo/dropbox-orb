@@ -1,5 +1,6 @@
 Delete() {
-		source ./helper.sh
+		# shellcheck disable=SC1091
+		source helper.sh
 		verboseCurl true -X POST https://api.dropboxapi.com/2/files/delete_v2 \
 			--header "Authorization: Bearer ${DROPBOX_TOKEN}" \
 			--header "Content-Type: application/json" \

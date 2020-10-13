@@ -8,6 +8,6 @@ parameters:
 steps:
   - run:
       environment:
-        DELETE_PATH: <<parameters.filepath>>
+        DELETE_PATH: <<parameters.deletepath>>
       name: Delete File
       command: <<include(scripts/delete.sh)>>

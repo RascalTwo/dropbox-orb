@@ -6,7 +6,7 @@ verboseCurl(){
 		STATUSCODE=$(curl --silent --output ./output --write-out "%{http_code}" "$@")
 
 		# Treat Non-200 as error, output response and return 1
-		if test $STATUSCODE -ne 200; then
+		if test "$STATUSCODE" -ne 200; then
 				echo "HTTP Response ${STATUSCODE}: "
 				cat ./output
 				rm ./output

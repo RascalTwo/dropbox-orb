@@ -8,6 +8,5 @@ parameters:
     type: string
     description: "Path of file to delete"
 steps:
-  - upload:
-        filepath: << parameters.filepath >>
-        deletepath: << parameters.deletepath >>
+  - delete:
+      deletepath: << parameters.deletepath >>

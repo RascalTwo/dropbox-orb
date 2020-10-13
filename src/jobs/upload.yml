@@ -12,5 +12,5 @@ parameters:
     description: "Where to upload file"
 steps:
   - upload:
-        filepath: << parameters.filepath >>
-        uploadpath: << parameters.uploadpath >>
+      filepath: << parameters.filepath >>
+      uploadpath: << parameters.uploadpath >>
