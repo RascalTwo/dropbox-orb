@@ -1,0 +1,13 @@
+description: >
+  Downloading a file.
+
+usage:
+  version: 2.1
+  orbs:
+    dropbox-orb: rascaltwo/dropbox-orb@dev:alpha
+  workflows:
+    download-a-file:
+      jobs:
+        - dropbox-orb/download:
+            downloadpath: /path-of-file-on-dropbox.txt
+            filepath: ./where-to-download-file-locally.txt

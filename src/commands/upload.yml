@@ -1,0 +1,17 @@
+description: >
+  Upload a file
+
+parameters:
+  filepath:
+    type: string
+    description: "Path of file to upload"
+  uploadpath:
+    type: string
+    description: "Where to upload file"
+steps:
+  - run:
+      environment:
+        FILE_PATH: <<parameters.filepath>>
+        UPLOAD_PATH: <<parameters.uploadpath>>
+      name: Run Name
+      command: <<include(scripts/upload.sh)>>

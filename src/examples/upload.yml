@@ -1,0 +1,13 @@
+description: >
+  Uploading a file.
+
+usage:
+  version: 2.1
+  orbs:
+    dropbox-orb: rascaltwo/dropbox-orb@dev:alpha
+  workflows:
+    upload-a-file:
+      jobs:
+        - dropbox-orb/upload:
+            filepath: ./local-file-to-upload.txt
+            uploadpath: /path-of-uploaded-file-to.txt

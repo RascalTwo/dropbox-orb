@@ -1,0 +1,13 @@
+description: >
+  Delete a file
+
+executor: default
+
+parameters:
+  deletepath:
+    type: string
+    description: "Path of file to delete"
+steps:
+  - upload:
+        filepath: << parameters.filepath >>
+        deletepath: << parameters.deletepath >>

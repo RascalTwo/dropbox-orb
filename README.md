@@ -2,13 +2,7 @@
 
 [![CircleCI Build Status](https://circleci.com/gh/RascalTwo/dropbox-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/RascalTwo/dropbox-orb) [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/rascaltwo/dropbox-orb)](https://circleci.com/orbs/registry/orb/rascaltwo/dropbox-orb) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/RascalTwo/dropbox-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
-
-
-A starter template for orb projects. Build, test, and publish orbs automatically on CircleCI with [Orb-Tools](https://circleci.com/orbs/registry/orb/circleci/orb-tools).
-
-Additional READMEs are available in each directory.
-
-
+This Orb allows for interaction with the [Dropbox API](https://www.dropbox.com/developers/documentation/http/documentation).
 
 ## Resources
 

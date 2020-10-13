@@ -1,0 +1,12 @@
+description: >
+  Deleting a file.
+
+usage:
+  version: 2.1
+  orbs:
+    dropbox-orb: rascaltwo/dropbox-orb@dev:alpha
+  workflows:
+    delete-a-file:
+      jobs:
+        - dropbox-orb/delete:
+            deletepath: /path-of-file-to-delete.txt

@@ -1,0 +1,20 @@
+description: >
+  Upload a file
+
+parameters:
+  downloadpath:
+    type: string
+    description: "Where to download file from"
+  filepath:
+    type: string
+    description: "Where to download file to"
+steps:
+  - run:
+      environment:
+        DOWNLOAD_PATH: <<parameters.downloadpath>>
+        FILE_PATH: <<parameters.filepath>>
+      name: Download File
+      command: <<include(scripts/download.sh)>>
+  - persist_to_workspace:
+      root: .
+      paths: $FILE_PATH

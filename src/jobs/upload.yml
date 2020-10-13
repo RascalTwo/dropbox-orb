@@ -1,0 +1,16 @@
+description: >
+  Upload a file
+
+executor: default
+
+parameters:
+  filepath:
+    type: string
+    description: "Path of file to upload"
+  uploadpath:
+    type: string
+    description: "Where to upload file"
+steps:
+  - upload:
+        filepath: << parameters.filepath >>
+        uploadpath: << parameters.uploadpath >>
