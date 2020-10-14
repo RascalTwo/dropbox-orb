@@ -22,6 +22,7 @@ verboseCurl(){
 }
 
 Delete() {
+		echo "Deleting '${DELETE_PATH}'..."
 		verboseCurl true -X POST https://api.dropboxapi.com/2/files/delete_v2 \
 			--header "Authorization: Bearer ${DROPBOX_TOKEN}" \
 			--header "Content-Type: application/json" \

@@ -13,5 +13,5 @@ steps:
       environment:
         FILE_PATH: <<parameters.filepath>>
         UPLOAD_PATH: <<parameters.uploadpath>>
-      name: Run Name
+      name: Upload File
       command: <<include(scripts/upload.sh)>>
