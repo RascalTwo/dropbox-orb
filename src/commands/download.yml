@@ -17,4 +17,4 @@ steps:
       command: <<include(scripts/download.sh)>>
   - persist_to_workspace:
       root: .
-      paths: $FILE_PATH
+      paths: .
