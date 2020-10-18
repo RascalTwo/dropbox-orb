@@ -1,5 +1,4 @@
-description: >
-  Upload a file
+description: Download a file from Dropbox
 
 parameters:
   downloadpath:
@@ -8,6 +7,7 @@ parameters:
   filepath:
     type: string
     description: "Where to download file to"
+
 steps:
   - run:
       environment:
@@ -15,6 +15,3 @@ steps:
         FILE_PATH: <<parameters.filepath>>
       name: Download File
       command: <<include(scripts/download.sh)>>
-  - persist_to_workspace:
-      root: .
-      paths: .

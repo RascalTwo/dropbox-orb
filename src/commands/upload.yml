@@ -1,5 +1,4 @@
-description: >
-  Upload a file
+description: Upload a file to Dropbox
 
 parameters:
   filepath:
@@ -8,6 +7,7 @@ parameters:
   uploadpath:
     type: string
     description: "Where to upload file"
+
 steps:
   - run:
       environment:

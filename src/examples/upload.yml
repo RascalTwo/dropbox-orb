@@ -1,10 +1,9 @@
-description: >
-  Uploading a file.
+description: Upload `./local-file-to-upload.txt` to Dropbox at `/path-of-uploaded-file-to.txt`
 
 usage:
   version: 2.1
   orbs:
-    dropbox-orb: rascaltwo/dropbox-orb@dev:alpha
+    dropbox-orb: rascaltwo/dropbox-orb@1
   workflows:
     upload-a-file:
       jobs:

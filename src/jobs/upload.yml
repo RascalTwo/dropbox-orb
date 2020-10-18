@@ -1,5 +1,4 @@
-description: >
-  Upload a file
+description: Upload a file to Dropbox
 
 executor: default
 
@@ -10,6 +9,7 @@ parameters:
   uploadpath:
     type: string
     description: "Where to upload file"
+
 steps:
   - upload:
       filepath: << parameters.filepath >>
