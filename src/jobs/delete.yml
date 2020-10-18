@@ -1,0 +1,12 @@
+description: Delete a file from Dropbox
+
+executor: default
+
+parameters:
+  deletepath:
+    type: string
+    description: "Path of file to delete"
+
+steps:
+  - delete:
+      deletepath: << parameters.deletepath >>

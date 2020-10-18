@@ -1,0 +1,13 @@
+description: Delete a file from Dropbox
+
+parameters:
+  deletepath:
+    type: string
+    description: "Path of file to delete"
+
+steps:
+  - run:
+      environment:
+        DELETE_PATH: <<parameters.deletepath>>
+      name: Delete File
+      command: <<include(scripts/delete.sh)>>

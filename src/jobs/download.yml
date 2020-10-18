@@ -1,0 +1,16 @@
+description: Download a file from Dropbox
+
+executor: default
+
+parameters:
+  downloadpath:
+    type: string
+    description: "Where to download file from"
+  filepath:
+    type: string
+    description: "Where to download file to"
+
+steps:
+  - download:
+      downloadpath: << parameters.downloadpath >>
+      filepath: << parameters.filepath >>

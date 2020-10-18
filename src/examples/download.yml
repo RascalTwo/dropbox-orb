@@ -1,0 +1,12 @@
+description: Download `/path-of-file-on-dropbox.txt` to `./where-to-download-file-locally.txt`
+
+usage:
+  version: 2.1
+  orbs:
+    dropbox-orb: rascaltwo/dropbox-orb@1
+  workflows:
+    download-a-file:
+      jobs:
+        - dropbox-orb/download:
+            downloadpath: /path-of-file-on-dropbox.txt
+            filepath: ./where-to-download-file-locally.txt

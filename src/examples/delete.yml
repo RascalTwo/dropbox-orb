@@ -1,0 +1,11 @@
+description: Delete `/path-of-file-to-delete.txt` from Dropbox
+
+usage:
+  version: 2.1
+  orbs:
+    dropbox-orb: rascaltwo/dropbox-orb@1
+  workflows:
+    delete-a-file:
+      jobs:
+        - dropbox-orb/delete:
+            deletepath: /path-of-file-to-delete.txt
