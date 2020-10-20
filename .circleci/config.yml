@@ -25,8 +25,7 @@ parameters:
 jobs:
   # Define one or more jobs which will utilize your orb's commands and parameters to validate your changes.
   upload-download-delete-test:
-    docker:
-      - image: cimg/base:stable
+    executor: dropbox-orb/default
     steps:
       - run:
           name: Create unique file
@@ -62,8 +61,6 @@ workflows:
       # optional: Run BATS tests against your scripts
 #      - bats/run:
 #          path: ./src/tests
-      - upload-download-delete-test:
-          context: dropbox-context
       # If you accept building open source forks, protect your secrects behind a restricted context.
       # A job containing restricted context (which holds your orb publishing credentials) may only be accessed by a user with proper permissions.
       # An open source user may begin a pipeline with a PR, and once the pipeline is approved by an authorized user at this point, the pipeline will continue with the proper context permissions.
