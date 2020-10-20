@@ -11,6 +11,7 @@ parameters:
 steps:
   - run:
       environment:
+        BASH_ENV: .circleci/bash_env.sh
         DOWNLOAD_PATH: <<parameters.downloadpath>>
         FILE_PATH: <<parameters.filepath>>
       name: Download File

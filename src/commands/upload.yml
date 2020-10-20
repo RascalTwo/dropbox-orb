@@ -11,6 +11,7 @@ parameters:
 steps:
   - run:
       environment:
+        BASH_ENV: .circleci/bash_env.sh
         FILE_PATH: <<parameters.filepath>>
         UPLOAD_PATH: <<parameters.uploadpath>>
       name: Upload File
