@@ -4,6 +4,8 @@
 
 This Orb allows for interaction with the [Dropbox HTTP API](https://www.dropbox.com/developers/documentation/http/documentation).
 
+`DROPBOX_TOKEN` environment variable is required to be set to the Generated access token for the application.
+
 ## Resources
 
 [CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/rascaltwo/dropbox-orb) - The official registry page of this orb for all versions, executors, commands, and jobs described.

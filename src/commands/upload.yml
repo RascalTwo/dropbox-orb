@@ -6,7 +6,28 @@ parameters:
     description: "Path of file to upload"
   uploadpath:
     type: string
-    description: "Where to upload file"
+    description: Path in the user's Dropbox to save the file
+  mode:
+    type: enum
+    enum: ["add", "overwrite", "update"]
+    default: "add"
+    description: Selects what to do if the file already exists
+  autorename:
+    type: boolean
+    default: false
+    description: If there's a conflict, as determined by mode, have the Dropbox server try to autorename the file to avoid conflict
+  client_modified:
+    type: string
+    default: ""
+    description: The value to store as the client_modified timestamp
+  mute:
+    type: boolean
+    default: false
+    description: If true, this tells the clients that this modification shouldn't result in a user notification
+  strict_conflict:
+    type: boolean
+    default: false
+    description: Be more strict about how each WriteMode detects conflict, also force a conflict even when the target path refers to a file with identical contents
 
 steps:
   - run:
@@ -15,5 +36,10 @@ steps:
       environment:
         FILE_PATH: <<parameters.filepath>>
         UPLOAD_PATH: <<parameters.uploadpath>>
+        MODE: <<parameters.mode>>
+        AUTORENAME: <<parameters.autorename>>
+        CLIENT_MODIFIED: <<parameters.client_modified>>
+        MUTE: <<parameters.mute>>
+        STRICT_CONFLICT: <<parameters.strict_conflict>>
       name: Upload File
       command: <<include(scripts/upload.sh)>>

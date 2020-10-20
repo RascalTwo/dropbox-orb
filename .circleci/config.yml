@@ -33,6 +33,7 @@ jobs:
             echo "$BASH_ENV" > ./local-file.txt
       - dropbox-orb/upload:
           uploadpath: /uploaded-file.txt
+          mode: overwrite
           filepath: ./local-file.txt
       - dropbox-orb/download:
           downloadpath: /uploaded-file.txt
