@@ -6,7 +6,7 @@ parameters:
     description: "Path of file to upload"
   uploadpath:
     type: string
-    description: "Where to upload file"
+    description: Path in the user's Dropbox to save the file
 
 steps:
   - run:

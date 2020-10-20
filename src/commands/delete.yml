@@ -1,9 +1,17 @@
-description: Delete a file from Dropbox
+description: Delete a file or folder from Dropbox
 
 parameters:
   deletepath:
     type: string
-    description: "Path of file to delete"
+    description: Path in the user's Dropbox to delete
+  permanent:
+    type: boolean
+    default: false
+    description: "If to permanently delete the target or not"
+  parent_rev:
+    type: string
+    default: ""
+    description: Perform delete if given "rev" matches the existing file's latest "rev". This field does not support deleting a folder.
 
 steps:
   - run:
@@ -11,5 +19,7 @@ steps:
   - run:
       environment:
         DELETE_PATH: <<parameters.deletepath>>
-      name: Delete File
+        PERMANENT: <<parameters.permanent>>
+        PARENT_REV: <<parameters.parent_rev>>
+      name: Delete File/Folder
       command: <<include(scripts/delete.sh)>>
