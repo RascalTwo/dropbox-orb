@@ -7,6 +7,8 @@ parameters:
 
 steps:
   - run:
+      command: <<include(scripts/verboseCurl.sh)>>
+  - run:
       environment:
         DELETE_PATH: <<parameters.deletepath>>
       name: Delete File

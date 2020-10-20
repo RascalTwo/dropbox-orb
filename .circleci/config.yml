@@ -22,13 +22,30 @@ parameters:
     type: string
     default: "dev:alpha"
 
-#jobs:
+jobs:
   # Define one or more jobs which will utilize your orb's commands and parameters to validate your changes.
-##  integration-test-1:
-#    docker:
-#      - image: cimg/base:stable
-#    steps:
-#      - checkout
+  upload-download-delete-test:
+    executor: dropbox-orb/default
+    steps:
+      - run:
+          name: Create unique file
+          command: |
+            echo "$BASH_ENV" > ./local-file.txt
+      - dropbox-orb/upload:
+          uploadpath: /uploaded-file.txt
+          filepath: ./local-file.txt
+      - dropbox-orb/download:
+          downloadpath: /uploaded-file.txt
+          filepath: ./downloaded-file.txt
+      - run:
+          name: Test downloaded file matches uploaded file
+          command: |
+            DOWNLOADED_CONTENT=$(cat ./downloaded-file.txt)
+            echo " Uploaded  Content: $BASH_ENV"
+            echo "Downloaded Content: $DOWNLOADED_CONTENT"
+            [[ "$BASH_ENV" = "$DOWNLOADED_CONTENT" ]]
+      - dropbox-orb/delete:
+          deletepath: /uploaded-file.txt
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
@@ -75,7 +92,8 @@ workflows:
     when: << pipeline.parameters.run-integration-tests >>
     jobs:
       # Run any integration tests defined within the `jobs` key.
-#      - integration-test-1
+      - upload-download-delete-test:
+          context: dropbox-context
       # Publish a semver version of the orb. relies on
       # the commit subject containing the text "[semver:patch|minor|major|skip]"
       # as that will determine whether a patch, minor or major
@@ -88,8 +106,8 @@ workflows:
           add-pr-comment: false
           fail-if-semver-not-indicated: true
           publish-version-tag: false
-#          requires:
-#            - integration-test-1
+          requires:
+            - upload-download-delete-test
           filters:
             branches:
               only: master
