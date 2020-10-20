@@ -1,11 +1,13 @@
 Upload() {
 		echo "Uploading '${FILE_PATH}' to '${UPLOAD_PATH}'..."
 
+		# Only include client modified if it's not blank
 		clientModified="";
 		if [ -n "${CLIENT_MODIFIED}" ]; then
 			clientModified=", \"client_modified\": \"${CLIENT_MODIFIED}\"";
 		fi;
 
+		# Convert 0/1 booleans to true/false
 		[[ "${AUTORENAME}" = "1" ]] && AUTORENAME="true" || AUTORENAME="false"
 		[[ "${MUTE}" = "1" ]] && MUTE="true" || MUTE="false"
 		[[ "${STRICT_CONFLICT}" = "1" ]] && STRICT_CONFLICT="true" || STRICT_CONFLICT="false"

@@ -1,4 +1,5 @@
 Delete() {
+		# Set url path and prefix based on if the deletion is permanent
 		prefix="";
 		if [[ "${PERMANENT}" = "1" ]]; then
 			urlPath="permanently_delete";
@@ -7,6 +8,7 @@ Delete() {
 			urlPath="delete_v2"
 		fi;
 
+		# Only include parent_rev if it's not blank
 		parentRev="";
 		if [ -n "${PARENT_REV}" ]; then
 			parentRev=", \"parent_rev\": \"${PARENT_REV}\"";
