@@ -7,6 +7,10 @@ parameters:
   filepath:
     type: string
     description: Where to download file to
+  ignore_nonexistent:
+    type: boolean
+    default: false
+    description: If to ignore errors thrown for file not being found
 
 steps:
   - run:
@@ -15,5 +19,6 @@ steps:
       environment:
         DOWNLOAD_PATH: <<parameters.downloadpath>>
         FILE_PATH: <<parameters.filepath>>
+        IGNORE_NONEXISTENT: <<parameters.ignore_nonexistent>>
       name: Download File
       command: <<include(scripts/download.sh)>>

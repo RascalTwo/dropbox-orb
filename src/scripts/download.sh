@@ -7,7 +7,13 @@ Download() {
 		# Return result if not successful
 		RESULT=$?
 		if [ $RESULT -ne 0 ]; then
-			return $RESULT
+			# If the ignore_nonexistent flag is true and the
+			# file is not found, silently ignore the error
+			if [[ "${IGNORE_NONEXISTENT}" = "1" ]] && [[ "$(jq .error_summary < output)" = "\"path/not_found/\"" ]]; then
+				echo "File not found, silently ignoring..."
+				return 0;
+			fi
+			return $RESULT;
 		fi
 
 		# Otherwise move file to desired location
